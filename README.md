@@ -9,3 +9,19 @@ docker run --name image-qr-app -p 5001:5001 gautamhcscv/flask-qr-app
 ```
 
 Docker pushed in public domain.
+
+```
+import requests
+
+url = "http://127.0.0.1:5001/inference"
+payload = {}
+files=[
+  ('image',('Image__2023-10-31__16-13-00.bmp',open(r"C:/Users/GAUTAM/Downloads/Static Captured Images 25mm/Image__2023-10-31__16-13-00.bmp",'rb'),'image/bmp'))
+]
+headers = {}
+
+response = requests.request("POST", url, headers=headers, data=payload, files=files)
+
+print(response.text)
+
+```
